@@ -10,11 +10,22 @@ body {
     background-color: #000000;
 }
 
+/* game container */
+
+.gameContainer {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* wordle title */
 .titleContainer {
     text-align: center;
     width: 510px;
     border-bottom: solid 1px #3a4a4c;
 }
+
 
 
