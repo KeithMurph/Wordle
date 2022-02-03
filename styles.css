@@ -1,0 +1,20 @@
+/* global styling */
+* {
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+/* body styling just black for now  */
+body {
+    background-color: #000000;
+}
+
+/* wordle title */
+.titleContainer {
+    text-align: center;
+    width: 510px;
+    border-bottom: solid 1px #3a4a4c;
+}
+
+
