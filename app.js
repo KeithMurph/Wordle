@@ -6,6 +6,7 @@ const keys = [
     'W',
     'E',
     'R',
+    'T',
     'Y',
     'U',
     'I',
