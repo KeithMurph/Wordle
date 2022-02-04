@@ -8,7 +8,7 @@ const wordle = 'SUPER'
 
 // keyboard buttons
 const keys = [
-    'Q'  ,
+    'Q',
     'W',
     'E',
     'R',
@@ -54,6 +54,7 @@ const guessRows = [
 let currentRow = 0
 let currentTile = 0
 let isGameOver = false
+
 
 guessRows.forEach((guessRow, guessRowIndex) => {
     const rowElement = document.createElement('div')
@@ -162,8 +163,8 @@ const showMessage = (message) => {
 //updated keyboard color
 
 const addColorToKey = (keyLetter, color) => {
- const key =   document.getElementById(keyLetter)
- key.classList.add(color)
+    const key = document.getElementById(keyLetter)
+    key.classList.add(color)
 
 }
 
@@ -174,7 +175,10 @@ const flipTile = () => {
     const guess = []
 
     rowTiles.forEach(tile => {
-        guess.push({ letter: tile.getAttribute('data'), color: 'greyOverlay' })
+        guess.push({
+            letter: tile.getAttribute('data'),
+            color: 'greyOverlay'
+        })
     })
 
     guess.forEach((guess, index) => {
@@ -182,46 +186,43 @@ const flipTile = () => {
             guess.color = 'greenOverlay'
             checkWordle = checkWordle.replace(guess.letter, '')
         }
-        
+
     })
 
     guess.forEach(guess => {
-        if(checkWordle.includes(guess.letter)) {
-            guess.color= 'yellowOverlay'
+        if (checkWordle.includes(guess.letter)) {
+            guess.color = 'yellowOverlay'
             checkWordle = checkWordle.replace(guess.letter, '')
         }
     })
 
-    
-    
-    
-    
-    
+
     rowTiles.forEach((tile, index) => {
         setTimeout(() => {
-            tile.classList.add( 'flip', guess[index].color)
+            tile.classList.add('flip', guess[index].color)
             addColorToKey(guess[index].letter, guess[index].color)
-     }, 375 * index)
+        }, 375 * index)
     })
+
+
+    
 }
 
-
-
 // add actual keyboard functionality 
-// document.addEventListener("keyup", e => {
+// const realKeyboard = document.addEventListener("keyup", e => {
 //     console.log(e.key.toUpperCase());
 //     if(e.key.toUpperCase()==="BACKSPACE") {
 //         deleteLetter()
+//         return
        
 //     } else if(e.key.toUpperCase()=== "ENTER") {
 //         checkRow()
+//         return
        
 //     } else if(currentRow<5) {
 //         addLetter(e.key)
-        
+//         return
+      
         
 //     }
 // })
-
-
-
