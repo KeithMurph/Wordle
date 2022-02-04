@@ -76,3 +76,7 @@ body {
     align-items: center;
     margin: 2px;
 }
+
+.messageContainer {
+    height: 30px;
+}

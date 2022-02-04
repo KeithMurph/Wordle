@@ -1,6 +1,9 @@
 const tileDisplay = document.querySelector('.tileContainer');
 const keyboard = document.querySelector('.keyContainer');
 
+const worlde= 'SUPER'
+
+
 // keyboard buttons
 const keys = [
     'Q',
@@ -62,9 +65,7 @@ tileRows.forEach((tileRow, tileRowIndex) => {
 
 
 
-const handleClick = () => {
-    console.log('clicked')
-}
+
 
 
 // creates keyboard 
@@ -72,6 +73,10 @@ keys.forEach(key => {
     const buttonElement = document.createElement('button')
     buttonElement.textContent = key 
     buttonElement.setAttribute('id', key)
-    buttonElement.addEventListener('click', handleClick)
+    buttonElement.addEventListener('click', () => handleClick(key))
     keyboard.append(buttonElement)
 })
+
+const handleClick = (key) => {
+    console.log('clicked', key )
+}
