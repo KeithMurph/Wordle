@@ -80,14 +80,14 @@ keys.forEach(key => {
     keyboard.append(buttonElement)
 })
 
-const handleClick = (key) => {
-    console.log('%c clicked', 'color: green; background-color:black' , key )
-    addLetter(key)
+const handleClick = (letter) => {
+    console.log('%c clicked', 'color: green; background-color:black' , letter )
+    addLetter(letter)
 }
 
 
 const addLetter = (letter) => {
    const tile =  document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
     tile.textContent = letter
-
+    currentTile++
 }
