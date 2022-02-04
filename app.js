@@ -80,10 +80,12 @@ keys.forEach(key => {
     keyboard.append(buttonElement)
 })
 
+
+// handles onscreen keyboard clicks 
 const handleClick = (letter) => {
     console.log('%c clicked', 'color: green; background-color:black' , letter )
     if (letter === '«') {
-        console.log('delete letter')
+        deleteLetter()
         return
     }
     if (letter === 'ENTER') {
@@ -94,7 +96,9 @@ const handleClick = (letter) => {
 }
 
 
+// adds a letter to guess row/guess tile 
 const addLetter = (letter) => {
+    if (currentTile < 5 && currentRow < 6) {
    const tile =  document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
     tile.textContent = letter
     guessRows[currentRow][currentTile] = letter
@@ -102,3 +106,16 @@ const addLetter = (letter) => {
     currentTile++
     console.log('guessRows', guessRows)
 }
+}
+
+// delete a letter with  '«' the on screen delete key
+const deleteLetter = () => {
+    if (currentTile > 0) {
+    currentTile--
+   const tile = document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
+   tile.textContent = ''
+   guessRows[currentRow][currentTile] = ''
+   tile.setAttribute('data', '')
+}
+} 
+
