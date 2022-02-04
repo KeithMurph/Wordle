@@ -1,6 +1,7 @@
-const titleDisplay = document.querySelector('.titleContainer');
+const tileDisplay = document.querySelector('.tileContainer');
 const keyboard = document.querySelector('.keyContainer');
 
+// keyboard buttons
 const keys = [
     'Q',
     'W',
@@ -33,12 +34,34 @@ const keys = [
 
     
 
+];
+
+// game tile rows 
+const tileRows = [
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', '']
 ]
+
+tileRows.forEach((tileRow, tileRowIndex) => {
+   const rowElement = document.createElement('div')
+   rowElement.setAttribute('id', 'tileRow-' + tileRowIndex)
+
+   tileDisplay.append(rowElement)
+})
+
+
+
+
 const handleClick = () => {
     console.log('clicked')
 }
 
 
+// creates keyboard 
 keys.forEach(key => {
     const buttonElement = document.createElement('button')
     buttonElement.textContent = key 
