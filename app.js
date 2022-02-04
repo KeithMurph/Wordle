@@ -160,24 +160,65 @@ const showMessage = (message) => {
     setTimeout(() => messageDisplay.removeChild(messageElement), 2000)
 }
 
-// 
+//updated keyboard color
+
+const addColorToKey = (keyLetter, color) => {
+ const key =   document.getElementById(keyLetter)
+ key.classList.add(color)
+
+}
 
 
 const flipTile = () => {
     const rowTiles = document.querySelector('#guessRow-' + currentRow).childNodes
-    rowTiles.forEach((tile, index) => {
-        const dataLetter = tile.getAttribute('data')
+    let checkWordle = wordle
+    const guess = []
 
+    rowTiles.forEach(tile => {
+        guess.push({ letter: tile.getAttribute('data'), color: 'greyOverlay' })
+    })
 
-    setTimeout(() => {
-        tile.classList.add('flip')
-        if (dataLetter == wordle[index]) {
-            tile.classList.add('greenOverlay')
-        } else if (wordle.includes(dataLetter)) {
-            tile.classList.add('yellowOverlay')
-        } else {
-            tile.classList.add('greyOverlay')
+    guess.forEach((guess, index) => {
+        if (guess.letter == wordle[index]) {
+            guess.color = 'greenOverlay'
+            checkWordle = checkWordle.replace(guess.letter, '')
         }
-    }, 375 * index)
+        
+    })
+
+    guess.forEach(guess => {
+        if(checkWordle.includes(guess.letter)) {
+            guess.color= 'yellowOverlay'
+            checkWordle = checkWordle.replace(guess.letter, '')
+        }
+    })
+
+    
+    
+    
+    
+    
+    rowTiles.forEach((tile, index) => {
+        setTimeout(() => {
+            tile.classList.add( 'flip', guess[index].color)
+            addColorToKey(guess[index].letter, guess[index].color)
+     }, 375 * index)
     })
 }
+
+
+
+
+
+
+// tile.classList.add('flip')
+// if (dataLetter == wordle[index]) {
+//     tile.classList.add('greenOverlay')
+//     addColorToKey(dataLetter, 'greenOverlay')
+// } else if (wordle.includes(dataLetter)) {
+//     tile.classList.add('yellowOverlay')
+//     addColorToKey(dataLetter, 'yellowOverlay')
+// } else {
+//     tile.classList.add('greyOverlay')
+//     addColorToKey(dataLetter, 'greyOverlay')
+// }
