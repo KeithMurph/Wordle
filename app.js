@@ -1,7 +1,9 @@
 const tileDisplay = document.querySelector('.tileContainer');
 const keyboard = document.querySelector('.keyContainer');
+const messageDisplay = document.querySelector('.messageContainer');
 
-const worlde= 'SUPER'
+
+const wordle = 'SUPER'
 
 
 // keyboard buttons
@@ -51,6 +53,7 @@ const guessRows = [
 
 let currentRow = 0
 let currentTile = 0
+let isGameOver = false
 
 guessRows.forEach((guessRow, guessRowIndex) => {
    const rowElement = document.createElement('div')
@@ -86,13 +89,16 @@ const handleClick = (letter) => {
     console.log('%c clicked', 'color: green; background-color:black' , letter )
     if (letter === '«') {
         deleteLetter()
+        console.log('guessRows', guessRows)
         return
     }
     if (letter === 'ENTER') {
-        console.log('check row')
+        checkRow()
+        console.log('guessRows', guessRows)
         return
     }
     addLetter(letter)
+    console.log('guessRows', guessRows)
 }
 
 
@@ -104,7 +110,7 @@ const addLetter = (letter) => {
     guessRows[currentRow][currentTile] = letter
     tile.setAttribute('data', letter)
     currentTile++
-    console.log('guessRows', guessRows)
+   
 }
 }
 
@@ -119,3 +125,35 @@ const deleteLetter = () => {
 }
 } 
 
+
+// change row
+
+const checkRow = () => {
+    if (currentTile > 4) {
+        const guess = guessRows[currentRow].join('')
+        console.log('guess is ' + guess, "answer is " + wordle)
+        if(wordle == guess) {
+            showMessage('CORRECT!')
+            isGameOver = true
+            return
+        } else {
+            if (currentRow >= 5) {
+                isGameOver =false
+                showMessage('Game Over')
+                return
+            }
+            if (currentRow < 5) {
+                currentRow++
+                currentTile = 0
+            }
+        }
+    }
+}
+
+
+const showMessage = (message) => {
+    const messageElement = document.createElement('p')
+    messageElement.textContent = message
+    messageDisplay.append(messageElement)
+    setTimeout(() => messageDisplay.removeChild(messageElement), 2000)
+}
