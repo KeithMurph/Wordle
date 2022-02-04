@@ -37,7 +37,7 @@ const keys = [
     'M',
     '«',
 
-    
+
 
 ];
 
@@ -56,16 +56,16 @@ let currentTile = 0
 let isGameOver = false
 
 guessRows.forEach((guessRow, guessRowIndex) => {
-   const rowElement = document.createElement('div')
-   rowElement.setAttribute('id', 'guessRow-' + guessRowIndex)
-   guessRow.forEach((guess, guessIndex) => {
-     const tileElement =  document.createElement('div')
-     tileElement.setAttribute('id', 'guessRow-' + guessRowIndex + '-tile-' + guessIndex)
-     tileElement.classList.add('tile')
-     rowElement.append(tileElement)
-   })
+    const rowElement = document.createElement('div')
+    rowElement.setAttribute('id', 'guessRow-' + guessRowIndex)
+    guessRow.forEach((guess, guessIndex) => {
+        const tileElement = document.createElement('div')
+        tileElement.setAttribute('id', 'guessRow-' + guessRowIndex + '-tile-' + guessIndex)
+        tileElement.classList.add('tile')
+        rowElement.append(tileElement)
+    })
 
-   tileDisplay.append(rowElement)
+    tileDisplay.append(rowElement)
 })
 
 
@@ -77,7 +77,7 @@ guessRows.forEach((guessRow, guessRowIndex) => {
 // creates keyboard 
 keys.forEach(key => {
     const buttonElement = document.createElement('button')
-    buttonElement.textContent = key 
+    buttonElement.textContent = key
     buttonElement.setAttribute('id', key)
     buttonElement.addEventListener('click', () => handleClick(key))
     keyboard.append(buttonElement)
@@ -86,7 +86,7 @@ keys.forEach(key => {
 
 // handles onscreen keyboard clicks 
 const handleClick = (letter) => {
-    console.log('%c clicked', 'color: green; background-color:black' , letter )
+    console.log('%c clicked', 'color: green; background-color:black', letter)
     if (letter === '«') {
         deleteLetter()
         console.log('guessRows', guessRows)
@@ -105,25 +105,25 @@ const handleClick = (letter) => {
 // adds a letter to guess row/guess tile 
 const addLetter = (letter) => {
     if (currentTile < 5 && currentRow < 6) {
-   const tile =  document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
-    tile.textContent = letter
-    guessRows[currentRow][currentTile] = letter
-    tile.setAttribute('data', letter)
-    currentTile++
-   
-}
+        const tile = document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
+        tile.textContent = letter
+        guessRows[currentRow][currentTile] = letter
+        tile.setAttribute('data', letter)
+        currentTile++
+
+    }
 }
 
 // delete a letter with  '«' the on screen delete key
 const deleteLetter = () => {
     if (currentTile > 0) {
-    currentTile--
-   const tile = document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
-   tile.textContent = ''
-   guessRows[currentRow][currentTile] = ''
-   tile.setAttribute('data', '')
+        currentTile--
+        const tile = document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
+        tile.textContent = ''
+        guessRows[currentRow][currentTile] = ''
+        tile.setAttribute('data', '')
+    }
 }
-} 
 
 
 // change row
@@ -133,13 +133,13 @@ const checkRow = () => {
         const guess = guessRows[currentRow].join('')
         console.log('guess is ' + guess, "answer is " + wordle)
         flipTile()
-        if(wordle == guess) {
+        if (wordle == guess) {
             showMessage('CORRECT!')
             isGameOver = true
             return
         } else {
             if (currentRow >= 5) {
-                isGameOver =false
+                isGameOver = false
                 showMessage('Game Over')
                 return
             }
@@ -164,17 +164,20 @@ const showMessage = (message) => {
 
 
 const flipTile = () => {
-   const rowTiles = document.querySelector('#guessRow-' + currentRow).childNodes
-   rowTiles.forEach((tile, index) => {
-      const dataLetter =  tile.getAttribute('data')
+    const rowTiles = document.querySelector('#guessRow-' + currentRow).childNodes
+    rowTiles.forEach((tile, index) => {
+        const dataLetter = tile.getAttribute('data')
 
 
-      if(dataLetter == wordle[index]) {
-          tile.classList.add('greenOverlay')
-      } else if (wordle.includes(dataLetter)) {
-          tile.classList.add('yellowOverlay')
-      } else {
-          tile.classList.add('greyOverlay')
-      }
-   })
+    setTimeout(() => {
+        tile.classList.add('flip')
+        if (dataLetter == wordle[index]) {
+            tile.classList.add('greenOverlay')
+        } else if (wordle.includes(dataLetter)) {
+            tile.classList.add('yellowOverlay')
+        } else {
+            tile.classList.add('greyOverlay')
+        }
+    }, 375 * index)
+    })
 }
