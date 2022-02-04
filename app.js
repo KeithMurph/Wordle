@@ -52,6 +52,7 @@ tileRows.forEach((tileRow, tileRowIndex) => {
    tileRow.forEach((tile, tileIndex) => {
      const tileElement =  document.createElement('div')
      tileElement.setAttribute('id', 'tileRow-' + tileRowIndex + '-tile-' + tileIndex)
+     tileElement.classList.add('tile')
      rowElement.append(tileElement)
    })
 
