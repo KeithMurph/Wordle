@@ -27,5 +27,27 @@ body {
     border-bottom: solid 1px #3a4a4c;
 }
 
+/* game tiles */
+
+.tileContainer {
+    width: 330px ;
+    margin-bottom: 30px;
+}
 
 
+/* keyboard  */
+
+.keyContainer {
+    width: 510px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.keyContainer button {
+    width: 43px;
+    height: 58px;
+    border-radius: 4px;
+    border: none;
+    background-color: #818384;
+    margin: 4px;
+}
