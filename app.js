@@ -8,7 +8,7 @@ const wordle = 'SUPER'
 
 // keyboard buttons
 const keys = [
-    'Q',
+    'Q'  ,
     'W',
     'E',
     'R',
@@ -67,7 +67,6 @@ guessRows.forEach((guessRow, guessRowIndex) => {
 
     tileDisplay.append(rowElement)
 })
-
 
 
 
@@ -208,17 +207,21 @@ const flipTile = () => {
 
 
 
+// add actual keyboard functionality 
+// document.addEventListener("keyup", e => {
+//     console.log(e.key.toUpperCase());
+//     if(e.key.toUpperCase()==="BACKSPACE") {
+//         deleteLetter()
+       
+//     } else if(e.key.toUpperCase()=== "ENTER") {
+//         checkRow()
+       
+//     } else if(currentRow<5) {
+//         addLetter(e.key)
+        
+        
+//     }
+// })
 
 
 
-// tile.classList.add('flip')
-// if (dataLetter == wordle[index]) {
-//     tile.classList.add('greenOverlay')
-//     addColorToKey(dataLetter, 'greenOverlay')
-// } else if (wordle.includes(dataLetter)) {
-//     tile.classList.add('yellowOverlay')
-//     addColorToKey(dataLetter, 'yellowOverlay')
-// } else {
-//     tile.classList.add('greyOverlay')
-//     addColorToKey(dataLetter, 'greyOverlay')
-// }
