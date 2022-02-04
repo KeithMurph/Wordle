@@ -1,9 +1,22 @@
+
+
 const tileDisplay = document.querySelector('.tileContainer');
 const keyboard = document.querySelector('.keyContainer');
 const messageDisplay = document.querySelector('.messageContainer');
 
 
-const wordle = 'SUPER'
+let wordle = ''
+
+const getWordle = () => {
+    fetch('http://localhost:3001/word')
+    .then(response => response.json())
+    .then(json => {
+        console.log(json)
+        wordle = json.toUpperCase()
+    })
+    .catch(err => console.log(err))
+}
+getWordle()
 
 
 // keyboard buttons
