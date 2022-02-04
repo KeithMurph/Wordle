@@ -49,6 +49,11 @@ const tileRows = [
 tileRows.forEach((tileRow, tileRowIndex) => {
    const rowElement = document.createElement('div')
    rowElement.setAttribute('id', 'tileRow-' + tileRowIndex)
+   tileRow.forEach((tile, tileIndex) => {
+     const tileElement =  document.createElement('div')
+     tileElement.setAttribute('id', 'tileRow-' + tileRowIndex + '-tile-' + tileIndex)
+     rowElement.append(tileElement)
+   })
 
    tileDisplay.append(rowElement)
 })
