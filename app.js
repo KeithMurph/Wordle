@@ -40,7 +40,7 @@ const keys = [
 ];
 
 // game tile rows 
-const tileRows = [
+const guessRows = [
     ['', '', '', '', ''],
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -49,12 +49,15 @@ const tileRows = [
     ['', '', '', '', '']
 ]
 
-tileRows.forEach((tileRow, tileRowIndex) => {
+let currentRow = 0
+let currentTile = 0
+
+guessRows.forEach((guessRow, guessRowIndex) => {
    const rowElement = document.createElement('div')
-   rowElement.setAttribute('id', 'tileRow-' + tileRowIndex)
-   tileRow.forEach((tile, tileIndex) => {
+   rowElement.setAttribute('id', 'guessRow-' + guessRowIndex)
+   guessRow.forEach((guess, guessIndex) => {
      const tileElement =  document.createElement('div')
-     tileElement.setAttribute('id', 'tileRow-' + tileRowIndex + '-tile-' + tileIndex)
+     tileElement.setAttribute('id', 'guessRow-' + guessRowIndex + '-tile-' + guessIndex)
      tileElement.classList.add('tile')
      rowElement.append(tileElement)
    })
@@ -78,5 +81,13 @@ keys.forEach(key => {
 })
 
 const handleClick = (key) => {
-    console.log('clicked', key )
+    console.log('%c clicked', 'color: green; background-color:black' , key )
+    addLetter(key)
+}
+
+
+const addLetter = (letter) => {
+   const tile =  document.getElementById('guessRow-' + currentRow + '-tile-' + currentTile)
+    tile.textContent = letter
+
 }
