@@ -249,7 +249,7 @@ const flipTile = () => {
        
     } else if(e.key.toUpperCase()=== "ENTER") {
         checkRow()
-        return
+        
        
     } else if(currentRow<5) {
         addLetter(e.key.toUpperCase())
