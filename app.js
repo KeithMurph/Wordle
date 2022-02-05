@@ -187,7 +187,7 @@ const showMessage = (message) => {
     const messageElement = document.createElement('p')
     messageElement.textContent = message
     messageDisplay.append(messageElement)
-    setTimeout(() => messageDisplay.removeChild(messageElement), 100000)
+    setTimeout(() => messageDisplay.removeChild(messageElement), 2000)
 }
 
 //updated keyboard color
@@ -203,6 +203,8 @@ const flipTile = () => {
     const rowTiles = document.querySelector('#guessRow-' + currentRow).childNodes
     let checkWordle = wordle
     const guess = []
+
+    
 
     rowTiles.forEach(tile => {
         guess.push({
@@ -239,20 +241,20 @@ const flipTile = () => {
 }
 
 // add actual keyboard functionality 
-// const realKeyboard = document.addEventListener("keyup", e => {
-//     console.log(e.key.toUpperCase());
-//     if(e.key.toUpperCase()==="BACKSPACE") {
-//         deleteLetter()
-//         return
+ document.addEventListener("keyup", e => {
+    console.log(e.key.toUpperCase());
+    if(e.key.toUpperCase()==="BACKSPACE") {
+        deleteLetter()
+        return
        
-//     } else if(e.key.toUpperCase()=== "ENTER") {
-//         checkRow()
-//         return
+    } else if(e.key.toUpperCase()=== "ENTER") {
+        checkRow()
+        return
        
-//     } else if(currentRow<5) {
-//         addLetter(e.key)
-//         return
+    } else if(currentRow<5) {
+        addLetter(e.key.toUpperCase())
+        return
       
         
-//     }
-// })
+    }
+})

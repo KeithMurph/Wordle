@@ -51,6 +51,7 @@ body {
     background-color: #818384;
     margin: 4px;
 }
+    
 
 .keyContainer button:nth-child(11) {
     margin-left: 30px;
@@ -59,7 +60,7 @@ body {
 .keyContainer button:nth-child(20),
 .keyContainer button:nth-child(28) {
     width: 65px;
-}
+} 
 
 .tileContainer div {
     display: flex;
