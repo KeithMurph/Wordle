@@ -15,7 +15,7 @@ Random 5 letter word assigned on pageload, you have 6 chances to guess valid wor
  - [Installation](#howToInstall)
  - [Usage](#usage)
  - [Credits](#credits)
- - [Licence](#license)
+ - [License](#license)
  - [Questions](#questions)
 
  ## Installation
