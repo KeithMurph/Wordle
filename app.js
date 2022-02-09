@@ -90,29 +90,35 @@ guessRows.forEach((guessRow, guessRowIndex) => {
 
 // creates keyboard 
 keys.forEach(key => {
-    const buttonElement = document.createElement('button')
+    const buttonElement = document.createElement('button', onclick='playAudio')
     buttonElement.textContent = key
     buttonElement.setAttribute('id', key)
     buttonElement.addEventListener('click', () => handleClick(key))
     keyboard.append(buttonElement)
+ 
 })
 
 
 // handles onscreen keyboard clicks 
 const handleClick = (letter) => {
     if(!isGameOver) {
+      
+     
     console.log('%c clicked', 'color: green; background-color:black', letter)
     if (letter === '«') {
         deleteLetter()
         console.log('guessRows', guessRows)
+        
         return
     }
     if (letter === 'ENTER') {
         checkRow()
         console.log('guessRows', guessRows)
+        playAudio()
         return
     }
     addLetter(letter)
+   
     console.log('guessRows', guessRows)
 }
 }
@@ -251,10 +257,16 @@ const flipTile = () => {
         checkRow()
         
        
-    } else if(currentRow<5) {
+    } else if(currentRow<6) {
         addLetter(e.key.toUpperCase())
         return
       
         
     }
 })
+
+
+function playAudio()  {
+    document.getElementById('Audio').play();
+
+}
