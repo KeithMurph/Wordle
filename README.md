@@ -31,7 +31,6 @@ Random 5 letter word assigned on pageload, you have 6 chances to guess valid wor
 
  ## Credits
  -Wordle OG https://www.powerlanguage.co.uk/wordle/
- -Youtube Lecture. Ania Kubow
 
 ![Screenshot 2022-02-04 102546](https://user-images.githubusercontent.com/85463607/152583086-bf537655-4b03-4a02-bf24-f0ca8013f6dc.png)
 
