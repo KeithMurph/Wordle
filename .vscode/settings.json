@@ -2,5 +2,6 @@
     "cSpell.ignoreWords": [
         "Wordle",
         "worlde"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

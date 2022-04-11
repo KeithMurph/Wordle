@@ -239,7 +239,7 @@ const flipTile = () => {
         setTimeout(() => {
             tile.classList.add('flip', guess[index].color)
             addColorToKey(guess[index].letter, guess[index].color)
-        }, 375 * index)
+        }, 390 * index)
     })
 
 

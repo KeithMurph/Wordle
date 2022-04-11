@@ -1,9 +1,9 @@
 /* global styling */
 * {
     color: #ffffff;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
-
+    font-family: "clear sans", sans-serif;
+    font-weight: bold;
+    
 }
 
 /* body styling just black for now  */
@@ -14,7 +14,7 @@ body {
 /* game container */
 
 .gameContainer {
-    height: 90vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,15 +26,18 @@ body {
     text-align: center;
     width: 510px;
     border-bottom: solid 1px #495253;
+    font-size: 1.1rem;
 }
 
 /* game tiles */
 
 .tileContainer {
     width: 330px;
-    margin-bottom: 30px;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-size: 2rem;
+   
 }
-
 
 /* keyboard  */
 
@@ -43,6 +46,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     font-weight: bold;
+    font-size: 1.1rem;
 }
 
 .keyContainer button {
@@ -50,10 +54,9 @@ body {
     height: 58px;
     border-radius: 4px;
     border: none;
-    background-color: #707070;
+    background-color: #818384;
     margin: 4px;
 }
-    
 
 .keyContainer button:nth-child(11) {
     margin-left: 30px;
@@ -62,17 +65,16 @@ body {
 .keyContainer button:nth-child(20),
 .keyContainer button:nth-child(28) {
     width: 65px;
-} 
+}
 
 .tileContainer div {
     display: flex;
 }
 
-
 .tileContainer .tile {
     width: 62px;
     height: 62px;
-    border: 2px solid#2e2e2e;
+    border: 2px solid #2e2e2e;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -84,52 +86,56 @@ body {
     height: 30px;
 }
 
+
 .messageContainer p {
     background-color: #959595;
     border-radius: 10px;
     padding: 10px;
     margin: 0;
-
 }
-
 
 /* animation needs to be fixed I want tile to flip before  */
 .tile.flip {
-    animation: .5s flipping;
+    animation: 0.5s flipping;
 }
 
 @keyframes flipping {
-    0%{
-        transform:  rotateX(0deg)
+    0% {
+        transform: rotateX(0deg);
     }
-    25%{
-        transform:  rotateX(45deg);
+
+    25% {
+        transform: rotateX(45deg);
     }
-    50%{
-        transform:  rotateX(90deg);
+
+    50% {
+        transform: rotateX(90deg);
     }
-    75%{
-        transform:  rotateX(135deg);
+
+    75% {
+        transform: rotateX(135deg);
     }
-    100%{
+
+    100% {
         transform: rotateX(180deg);
     }
 }
 
-
 /* Tile Colors */
 
 .greyOverlay {
-    background-color: #3a3a3b !important;
+    background-color: #3a3a3c !important;
     border: none !important;
 }
 
 .yellowOverlay {
-    background-color: #bda951 !important;
+    background-color: #b59f3b !important;
+
     border: none !important;
 }
 
 .greenOverlay {
-    background-color: #4d8848 !important;
+    background-color: #6aaa64 !important;
     border: none !important;
+   
 }
